@@ -11,7 +11,7 @@ angular.module('WikiGraph', ['ui.router'])
 	  		})
 
 	  		.state('specific', {
-	  			url: '/project-3/:wikiName',
+	  			url: '/project-3/specific/:wikiName',
 	  			templateUrl: 'templates/specific-index.html',
 	  			controller: 'specificWikiController'
 	  		});
