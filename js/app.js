@@ -16,8 +16,5 @@ angular.module('WikiGraph', ['ui.router'])
 
 	  	// $urlRouterProvider.otherwise("/");
 
-	  	$locationProvider.html5Mode({
-	        enabled: true,
-	        requireBase: false
-    	});
+	 
 	}]);
