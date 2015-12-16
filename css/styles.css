@@ -1,0 +1,20 @@
+#article-container{
+	background-color: red;
+	display: inline-block;
+}
+#image-container {
+	background-color: blue;
+	display: inline-block;
+
+}
+#title-container {
+	background-color: green;
+	display: inline-block;
+	float: top;
+
+}
+
+#content-container {
+	background-color: yellow;
+	display: inline-block;
+}

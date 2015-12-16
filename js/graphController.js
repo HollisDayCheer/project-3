@@ -1,3 +1,7 @@
+//WORKING THINGS
+//PLURAL VS SINGULAR NORMALIZED
+//NO THING ON GRAPH TWICE
+
 angular.module('WikiGraph')
   .controller("graphController", [ '$scope', '$http', function( $scope, $http) {
     console.log('controller is working');
@@ -10,12 +14,12 @@ var ZoomChartsLicenseKey = "bb7924e4f05f54b7fc036c803df2f441449f427f12ccc64ced"+
 "1fcdf53f933996ce1d010bfafdfaa56aeb4744437bb753c9847fc032b74294eb1540ad8faee50"+
 "a72fe6dd3a72417c044c83151f2e0bc88cedd4482f104a9a003e3f18ed42f8347acaa47499f77";
     $scope.searchTerm = ""; //will be hit with an ng-model searchTerm
-    $scope.entriesInGraph = []; //array starts out empty, refreshes with each page refresh because 
+    $scope.solutionArray = []; //array starts out empty, refreshes with each page refresh because 
     //because the graph restarts, and we fill it as we add to our chart
-    // $scope.search = function(target){
-    //   // finds the closest wikipedia article (first one queried with an api call)
-    // }
+    $scope.targetItem = "";
+    $scope.victory = false;
     $scope.pageLinks =[];
+    var visitedMap = {};
     var numbNodes = 0;
     var ourChart;
     var graphStart = function(){
@@ -24,7 +28,8 @@ var ZoomChartsLicenseKey = "bb7924e4f05f54b7fc036c803df2f441449f427f12ccc64ced"+
             area: { height: 350 },
             data: {  },
             events: {
-                onDoubleClick: nodeClick
+                onDoubleClick: nodeDoubleClick,
+                onClick: getInfo
             },
             style: {
                 link: { fillColor: "limegreen" },
@@ -38,24 +43,42 @@ var ZoomChartsLicenseKey = "bb7924e4f05f54b7fc036c803df2f441449f427f12ccc64ced"+
                 zooming:{
                     autoZoom: false,
                     autoZoomAfterClick: false,
-                    autoZoomPositionEllasticity: false,
                     zoomInOnDoubleClick: false
                 }
             }
-
-
          });
+        $scope.victory = false;
+    }
+
+    function getInfo(event){
+        if(event.clickNode){
+           if(event.clickNode.image){
+               $http.jsonp("https://en.wikipedia.org/w/api.php?action=query&prop=extracts&exintro=true&titles="+ event.clickNode.id +"&format=json&callback=JSON_CALLBACK&redirects&").then(function(data){
+                           angular.element(document.querySelector('#articles-container')).html("<div class='article-block'><div id='image-container'><img src = '" + event.clickNode.image + "'></div><div id='title-container'><h1>" + event.clickNode.id + "</h1></div><div id='content-container'><p>" + data.data.query.pages[Object.keys(data.data.query.pages)[0]].extract + "</p></div></div>");
+               });
+            }else{
+                $http.jsonp("https://en.wikipedia.org/w/api.php?action=query&prop=extracts&exintro=true&titles="+ event.clickNode.id +"&format=json&callback=JSON_CALLBACK&redirects&").then(function(data){
+                           angular.element(document.querySelector('#articles-container')).html("<div class='article-block'><div id='image-container'></div><div id='title-container'><h1>" + event.clickNode.id + "</h1></div><div id='content-container'><p>" + data.data.query.pages[Object.keys(data.data.query.pages)[0]].extract + "</p></div></div>");
+               });
+            }
+            if($scope.targetItem.toLowerCase() == event.clickNode.id.toLowerCase()){
+                $scope.victory = true;
+            }
+        }
     }
 
     function getImage(node){
-        $http.jsonp("https://en.wikipedia.org/w/api.php?action=query&titles=" + node.id + "&prop=pageimages&format=json&pithumbsize=200&callback=JSON_CALLBACK").then(function(imageData){
-            console.log(Object.keys(imageData.data.query.pages)[0]);
+        $http.jsonp("https://en.wikipedia.org/w/api.php?action=query&titles=" + node.id + "&prop=pageimages&format=json&pithumbsize=300&callback=JSON_CALLBACK").then(function(imageData){
             if(imageData.data.query.pages[Object.keys(imageData.data.query.pages)[0]].thumbnail){
                 node.image = imageData.data.query.pages[Object.keys(imageData.data.query.pages)[0]].thumbnail.source;
             }
-        })
+            else{
+              //Put in google image search to get first image for item here!! How Swag!!
+            }
+        });
+        visitedMap[node.id] = true;
     }
-     function nodeClick(event){
+     function nodeDoubleClick(event){
         if(event.clickNode){
             $scope.continueGraph(event.clickNode.id);
         }
@@ -64,10 +87,10 @@ var ZoomChartsLicenseKey = "bb7924e4f05f54b7fc036c803df2f441449f427f12ccc64ced"+
     //be a different function than the generic add nodes function
      $scope.startGraph = function(title){
         graphStart()
+        $scope.gameStart(title);
         $http.jsonp("https://en.wikipedia.org/w/api.php?action=query&prop=extracts&exintro=true&titles="+ title +"&format=json&callback=JSON_CALLBACK&redirects&").then(function(data){
             $scope.ourID = Object.keys(data.data.query.pages)[0];
             $scope.ourPage = (data.data.query.pages[$scope.ourID].extract);
-            // console.log($scope.ourPage);
         }).then(function(data){
             $scope.continueGraph(title);
         });
@@ -77,17 +100,13 @@ var ZoomChartsLicenseKey = "bb7924e4f05f54b7fc036c803df2f441449f427f12ccc64ced"+
             basePageID = Object.keys(data.data.query.pages)[0];
             basePage = (data.data.query.pages[basePageID].extract.toLowerCase());
             baseNodeID = data.data.query.pages[basePageID].title;
-            // console.log(basePage);
+            // if(baseNodeID != title){
+            //     ourChart.getNode(title).id = baseNodeID;
+            // }
         }).then(function(data){
-            console.log("first chart is");
-            console.log(ourChart.nodes());
             var newLinks = getLinks(basePageID)               
             $scope.pageLinks.concat(newLinks)
             });
-        console.log(ourChart);
-        ourChart.updateStyle();
-         // ourChart.reloadData();
-      
 
         var getLinks = function(pageID){
             var pageLinks = [];
@@ -96,7 +115,7 @@ var ZoomChartsLicenseKey = "bb7924e4f05f54b7fc036c803df2f441449f427f12ccc64ced"+
                 ourLinks = data.data.query.pages[pageID].links;
                 for(var i = 0; i < ourLinks.length; i++){
                                 // console.log(ourLinks[i]);
-                    if (basePage.indexOf(ourLinks[i].title.toLowerCase()) != -1){
+                    if (basePage.indexOf(ourLinks[i].title.toLowerCase()) != -1 && !visitedMap[ourLinks[i].title]){
                         // console.log(ourLinks[i].title)
                         pageLinks.push(ourLinks[i].title);
                         var linkData = {nodes: [{id: ourLinks[i].title, loaded: true, style: {label: ourLinks[i].title, fillColor:  "#67B486"}}],
@@ -117,13 +136,13 @@ var ZoomChartsLicenseKey = "bb7924e4f05f54b7fc036c803df2f441449f427f12ccc64ced"+
                 for(var i = 0; i < ourLinks.length; i++){
                         // console.log(ourLinks[i].title)
                             // console.log(ourLinks[i]);
-                    if (basePage.indexOf(ourLinks[i].title.toLowerCase()) != -1){
+                    if (basePage.indexOf(ourLinks[i].title.toLowerCase()) != -1 && !visitedMap[ourLinks[i].title]){
                         pageLinks.push(ourLinks[i].title);
                         var newNode = {id: ourLinks[i].title, loaded: true, style: {label: ourLinks[i].title, fillColor:  "#67B486" }}
                          var linkData = {nodes: [newNode],
                                    links: [{ id: ourLinks[i].title + "link", from: baseNodeID, to: ourLinks[i].title}]};
                         ourChart.addData(linkData);
-                        setInterval(function(){}, 100)
+                        // setInterval(function(){}, 100)
                         numbNodes += 1;
                     }
                 }
@@ -150,7 +169,40 @@ var ZoomChartsLicenseKey = "bb7924e4f05f54b7fc036c803df2f441449f427f12ccc64ced"+
         //if page.continue
         //getMOREpages(new.data.continue.plcontinue)
       //}
-    
+    $scope.gameStart = function(title){
+        var visitedNodes = [];
+        var solutionArray = [];
+        solutionArray.push(title);
+        var target = findRandItem(title);
+
+        function findRandItem(curItem){
+            if(solutionArray.length>4){
+                $scope.targetItem = curItem;
+                $scope.solutionArray = solutionArray;
+                console.log(solutionArray);
+                return curItem;
+            }
+            else {  
+                $http.jsonp("https://en.wikipedia.org/w/api.php?action=query&prop=links|extracts&exintro=true&format=json&plnamespace=0&indexpageids=&titles="+ curItem + "&pllimit=500&format=json&callback=JSON_CALLBACK&redirects").then(function(data){
+                    var activeLinks = [];
+                    ourID = data.data.query.pageids[0];
+                    console.log(data);
+                    ourPage = data.data.query.pages[ourID].extract.toLowerCase();
+                    ourLinks = data.data.query.pages[ourID].links;
+                    for(var i = 0; i < ourLinks.length; i++){
+                        if (ourPage.indexOf(ourLinks[i].title.toLowerCase()) != -1 && visitedNodes.indexOf(ourLinks[i].title.toLowerCase()) == -1){
+                            activeLinks.push(ourLinks[i].title);
+                            visitedNodes.push(ourLinks[i].title.toLowerCase());
+                        }
+                    }
+                    var targetIndex = Math.floor(Math.random() * (activeLinks.length - 1));
+                    var nextItem = activeLinks[targetIndex];
+                    solutionArray.push(nextItem);
+                    return findRandItem(nextItem);
+                });
+            }
+        }
+    }
     $scope.startGraph('Giant Panda');
 
 }]);

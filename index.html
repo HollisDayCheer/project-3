@@ -4,26 +4,17 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>WikiGraph </title>
+        <link rel="stylesheet" type="text/css" href="css/styles.css">
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+        <script src="/node_modules/ui-router/release/angular-ui-router.js"></script>
         <script src="https://cdn.zoomcharts-cloud.com/1/latest/zoomcharts.js" type="text/javascript"></script>
         <script src="js/app.js"></script>
         <script src="js/graphController.js"></script>
+        <script src="js/specificWikiController.js"></script>
  </head>
-<body ng-controller = "graphController">
-        <form ng-submit = "startGraph(searchTerm)">
-        <input type="text" ng-model = "searchTerm" placeholder = "SEARCH">
-        <input type = "submit">
-        </form>
-<!-- Create a custom directive that can be pushed through each time! they'll have links and all that jazz. Or maybe just do that stuff. -->
-        <div id="chart-container">
-        </div>
-        <div id = "image-container">
-        </div>
-        <div id = "title-container">
-        </div>
-        <div id = "article-container">
-        </div>
-
+ <!-- Commented out the controller, should use simple python server from now on.  -->
+<body>
+        <ui-view></ui-view>
 
 </body>
 </html>
