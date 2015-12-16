@@ -13,6 +13,7 @@ var ZoomChartsLicenseKey = "bb7924e4f05f54b7fc036c803df2f441449f427f12ccc64ced"+
 "885c4bbb3e1fd2116003c4f9c3202fee68771a3ab965bb3132780fb87bd95e86994a340650526"+
 "1fcdf53f933996ce1d010bfafdfaa56aeb4744437bb753c9847fc032b74294eb1540ad8faee50"+
 "a72fe6dd3a72417c044c83151f2e0bc88cedd4482f104a9a003e3f18ed42f8347acaa47499f77";
+    $scope.specific = "";
     $scope.searchTerm = ""; //will be hit with an ng-model searchTerm
     $scope.solutionArray = []; //array starts out empty, refreshes with each page refresh because 
     //because the graph restarts, and we fill it as we add to our chart

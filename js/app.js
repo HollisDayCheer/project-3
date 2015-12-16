@@ -5,13 +5,13 @@ angular.module('WikiGraph', ['ui.router'])
 	  .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) {
 	  	$stateProvider
 	  		.state('home', {
-	  			url: '/project-3/',
+	  			url: '/project-3',
 	  			templateUrl: 'templates/wiki-index.html',
 	  			controller: 'graphController'
 	  		})
 
 	  		.state('specific', {
-	  			url: '/project-3/specific/:wikiName',
+	  			url: '/project-3/:wikiName',
 	  			templateUrl: 'templates/specific-index.html',
 	  			controller: 'specificWikiController'
 	  		});
