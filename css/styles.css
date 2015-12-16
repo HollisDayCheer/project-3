@@ -1,6 +1,7 @@
 #article-container{
 	background-color: red;
 	display: inline-block;
+	position: relative;
 }
 #image-container {
 	background-color: blue;
@@ -10,7 +11,8 @@
 #title-container {
 	background-color: green;
 	display: inline-block;
-	float: top;
+	position: absolute;
+	top: 0;
 
 }
 
