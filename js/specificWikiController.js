@@ -18,6 +18,7 @@ var ZoomChartsLicenseKey = "bb7924e4f05f54b7fc036c803df2f441449f427f12ccc64ced"+
     var visitedMap = {};
     $scope.victory = false;
     $scope.ourWiki = $stateParams.wikiName
+    console.log($scope.ourWiki);
     $scope.pageLinks =[];
     var numbNodes = 0;
     var ourChart;
