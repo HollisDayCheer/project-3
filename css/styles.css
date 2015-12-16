@@ -12,8 +12,9 @@
 	background-color: green;
 	display: inline-block;
 	position: absolute;
-	top: 0;
-
+}
+h1{
+	top:0;
 }
 
 #content-container {
