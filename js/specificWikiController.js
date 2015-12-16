@@ -17,13 +17,12 @@ var ZoomChartsLicenseKey = "bb7924e4f05f54b7fc036c803df2f441449f427f12ccc64ced"+
     // }
     var visitedMap = {};
     $scope.victory = false;
-    console.log($scope.ourWiki);
     $scope.pageLinks =[];
     var numbNodes = 0;
     var ourChart;
     var graphStart = function(){
         ourChart = new NetChart({
-            container: document.getElementById("chart-container"),
+            container: document.getElementById("specific-chart-container"),
             area: { height: 350 },
             data: {  },
             events: {
@@ -54,7 +53,7 @@ var ZoomChartsLicenseKey = "bb7924e4f05f54b7fc036c803df2f441449f427f12ccc64ced"+
      function getInfo(event){
         if(event.clickNode){
             // console.log(event.clickNode.id);
-            var myEl = angular.element( document.querySelector('#articles-container'));
+            var myEl = angular.element( document.querySelector('#specific-articles-container'));
             myEl.prepend("<img src = '" + event.clickNode.image + "' img>");
             if(event.clickNode.id.toLowerCase() == $scope.targetItem.toLowerCase()){
                 $scope.victory = true;
