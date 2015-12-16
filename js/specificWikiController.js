@@ -1,6 +1,6 @@
 angular.module('WikiGraph')
   .controller("specificWikiController", [ '$scope', '$http', '$stateParams', function( $scope, $http, $stateParams) {
-    console.log('controller is working');
+    console.log('Specific Controller is working');
     var ZoomChartsLicense = "ZCS-r50128xet: Free ZoomCharts development licence for hol..@..n.edu (valid for development and QA only)";
 var ZoomChartsLicenseKey = "bb7924e4f05f54b7fc036c803df2f441449f427f12ccc64ced"+
 "79fb9dcb2f6eb53fa80894138275980ccbc14bbc3376e5dfbe0e86ca89a703e9bdf49828b5f78"+
@@ -17,7 +17,6 @@ var ZoomChartsLicenseKey = "bb7924e4f05f54b7fc036c803df2f441449f427f12ccc64ced"+
     // }
     var visitedMap = {};
     $scope.victory = false;
-    $scope.ourWiki = $stateParams.wikiName
     console.log($scope.ourWiki);
     $scope.pageLinks =[];
     var numbNodes = 0;
