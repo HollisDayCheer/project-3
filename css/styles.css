@@ -21,4 +21,5 @@ h1{
 #content-container {
 	background-color: yellow;
 	display: inline-block;
+	position: relative;
 }
