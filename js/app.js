@@ -5,7 +5,7 @@ angular.module('WikiGraph', ['ui.router'])
 	  .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) {
 	  	$stateProvider
 	  		.state('home', {
-	  			url: '/project-3',
+	  			url: '/project-3/',
 	  			templateUrl: 'templates/wiki-index.html',
 	  			controller: 'graphController'
 	  		})
