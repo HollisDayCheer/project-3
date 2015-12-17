@@ -1,13 +1,13 @@
 <div ng-controller = "mainController">
-	<form ng-submit = "findSpecific(wikiaSearch)">
+	<form class = "wikia-search-form" ng-submit = "findSpecific(wikiaSearch)">
 		    <input type="text" ng-model = "wikiaSearch" placeholder = "Search Wikias!">
-		    <input type = "submit">
+		    <input class = "myButton" type = "submit">
 	</form>
 	<div ng-show = '!ourWiki'>
-		<div class = "wikia-search-form" ng-controller = "graphController">
+		<div ng-controller = "graphController">
 			<form ng-submit = "startGraph(searchTerm)">
 			    <input type="text" ng-model = "searchTerm" placeholder = "SEARCH">
-			    <input type = "submit">
+			    <input class = "myButton" type = "submit">
 			 </form>
 			<!-- Create a custom directive that can be pushed through each time! they'll have links and all that jazz. Or maybe just do that stuff. -->
 			<div id = "standard-container" ng-show="!specific">
@@ -33,7 +33,7 @@
 			{{ourWiki}}
 			<form  ng-submit = "startGraph(searchTerm)">
 			    <input type="text" ng-model = "searchTerm" placeholder = "SEARCH">
-			    <input type = "submit">
+			    <input class = "myButton" type = "submit">
 			 </form>
 			<!-- Create a custom directive that can be pushed through each time! they'll have links and all that jazz. Or maybe just do that stuff. -->
 			<div id = "standard-container" ng-show="!specific">
