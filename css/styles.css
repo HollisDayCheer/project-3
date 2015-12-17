@@ -29,7 +29,6 @@ h1{
 	display: inline-block;
 	position: relative;
 	float: left;
-	width: calc(100% - 400px);
 }
 .wiki-image{
 }
@@ -40,6 +39,7 @@ img{
 	position:relative;
 	float: right;
 	display: inline-block;
+	max-width: 300px;
 }
 p{
 	top: 0;
