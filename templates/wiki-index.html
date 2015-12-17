@@ -1,8 +1,12 @@
 <div ng-controller = "mainController">
-	<form class = "wikia-search-form" ng-submit = "findSpecific(wikiaSearch)">
-		    <input type="text" ng-model = "wikiaSearch" placeholder = "Search Wikias!">
-		    <input class = "myButton" type = "submit">
-	</form>
+	  <div class = "jumbo-header">
+                <h3> Wiki-Graph</h3>
+	            <form class = "wikia-search-form" ng-submit = "findSpecific(wikiaSearch)">
+			    	<input type="text" ng-model = "wikiaSearch" placeholder = "Search Wikias!">
+			    	<input class = "myButton" type = "submit">
+			</form>
+        </div>
+
 	<div ng-show = '!ourWiki'>
 		<div ng-controller = "graphController">
 			<form ng-submit = "startGraph(searchTerm)">
