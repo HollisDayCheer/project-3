@@ -20,16 +20,17 @@ h1{
 	display: inline-block;
 }
 
+.wiki-content {
+	background-color: yellow;
+	display: inline-block;
+	position: relative;
+}
+
 img{
 	display: inline-block;
 	position: absolute;
 	max-width: 400px;
 	right: 0;
-}
-.wiki-content {
-	background-color: yellow;
-	display: inline-block;
-	position: relative;
 }
 p{
 	top: 0;
