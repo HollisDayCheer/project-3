@@ -43,7 +43,7 @@ h1{
 img{
 	display: inline-block;
 	position: absolute;
-	max-width: 100%;
+	width: 100%;
 	right: 0;
 }
 p{
