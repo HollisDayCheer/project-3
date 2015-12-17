@@ -7,10 +7,7 @@
 	border-radius: 10px;
 }
 .wiki-image {
-	background-color: blue;
-	display: inline-block;
-	position: absolute;
-	max-width: 400px;
+	
 
 }
 .wiki-title {
@@ -24,11 +21,10 @@ h1{
 }
 
 img{
-	max-width:100%;
-	max-height:100%;
-	right: 0;
 	display: inline-block;
-
+	position: absolute;
+	max-width: 400px;
+	right: 0;
 }
 .wiki-content {
 	background-color: yellow;
