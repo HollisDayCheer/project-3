@@ -69,7 +69,7 @@ var ZoomChartsLicenseKey = "bb7924e4f05f54b7fc036c803df2f441449f427f12ccc64ced"+
     }
 
     function getImage(node){
-        $http.jsonp("https://en.wikipedia.org/w/api.php?action=query&titles=" + node.id + "&prop=pageimages&format=json&pithumbsize=400&callback=JSON_CALLBACK").then(function(imageData){
+        $http.jsonp("https://en.wikipedia.org/w/api.php?action=query&titles=" + node.id + "&prop=pageimages&format=json&pithumbsize=300&callback=JSON_CALLBACK").then(function(imageData){
             if(imageData.data.query.pages[Object.keys(imageData.data.query.pages)[0]].thumbnail){
                 node.image = imageData.data.query.pages[Object.keys(imageData.data.query.pages)[0]].thumbnail.source;
             }
