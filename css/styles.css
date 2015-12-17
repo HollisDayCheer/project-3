@@ -12,7 +12,7 @@
 }
 .wiki-title {
 	display: inline-block;
-	position: absolute;
+	position: relative;
 	text-align: center;
 	border-bottom: 2px solid black;
 }
@@ -28,11 +28,9 @@ h1{
 
 img{
 	display: inline-block;
-	position: absolute;
 	max-width: 400px;
 	right: 0;
 }
 p{
 	top: 0;
-	display: inline-block;
 }
