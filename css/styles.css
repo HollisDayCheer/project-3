@@ -26,6 +26,7 @@ h1{
 	display: inline-block;
 	position: relative;
 	float: left;
+	width: 100% - 400px;
 }
 .wiki-image{
 	position:relative;
