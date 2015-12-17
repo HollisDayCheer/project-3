@@ -55,7 +55,7 @@ var ZoomChartsLicenseKey = "bb7924e4f05f54b7fc036c803df2f441449f427f12ccc64ced"+
         if(event.clickNode){
            if(event.clickNode.image){
                $http.jsonp("https://en.wikipedia.org/w/api.php?action=query&prop=extracts&exintro=true&titles="+ event.clickNode.id +"&format=json&callback=JSON_CALLBACK&redirects&").then(function(data){
-                           angular.element(document.querySelector('#articles-container')).html("<div class='article-block'><div id='image-container'><img src = '" + event.clickNode.image + "'></div><div id='title-container'><h1>" + event.clickNode.id + "</h1></div><div id='content-container'><p>" + data.data.query.pages[Object.keys(data.data.query.pages)[0]].extract + "</p></div></div>");
+                           angular.element(document.querySelector('#articles-container')).html("<div class = 'wiki-image' id='image-container'><img src = '" + event.clickNode.image + "'></div><div class = 'wiki-title' id='title-container'><h1>" + event.clickNode.id + "</h1></div><div class = 'wiki-content' id='content-container'><p>" + data.data.query.pages[Object.keys(data.data.query.pages)[0]].extract + "</p></div>");
                });
             }else{
                 $http.jsonp("https://en.wikipedia.org/w/api.php?action=query&prop=extracts&exintro=true&titles="+ event.clickNode.id +"&format=json&callback=JSON_CALLBACK&redirects&").then(function(data){
