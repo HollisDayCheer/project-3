@@ -14,10 +14,8 @@
 
 }
 .wiki-title {
-	width: calc(100%-400px);
 	display: inline-block;
 	position: relative;
-	border-bottom: 2px solid black;
 }
 h1{
 	display: inline-block;
