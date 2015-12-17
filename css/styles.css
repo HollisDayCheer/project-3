@@ -23,16 +23,14 @@ h1{
 
 .wiki-content {
 	background-color: yellow;
-	display: inline-block;
 	position: relative;
+	float: left;
 }
 .wiki-image{
 	position:relative;
 	float: right;
 	width: 400px;
 	height: 400px;
-	display: inline-block;
-
 }
 img{
 	display: inline-block;
