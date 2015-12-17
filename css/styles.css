@@ -32,18 +32,16 @@ h1{
 	width: calc(100% - 400px);
 }
 .wiki-image{
+}
+img{
+	display: inline-block;
+	position: absolute;
 	border: 2px solid black;
 	position:relative;
 	float: right;
 	width: 300px;
 	height: 300px;
 	display: inline-block;
-
-}
-img{
-	display: inline-block;
-	position: absolute;
-	max-width: 100%;
 }
 p{
 	top: 0;
