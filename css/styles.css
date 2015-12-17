@@ -33,5 +33,7 @@ img{
 	background-color: yellow;
 	display: inline-block;
 	position: relative;
+}
+p{
 	top: 0;
 }
