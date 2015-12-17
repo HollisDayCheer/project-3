@@ -58,12 +58,12 @@ var ZoomChartsLicenseKey = "bb7924e4f05f54b7fc036c803df2f441449f427f12ccc64ced"+
                 $http.jsonp("http://"+ $scope.ourWiki + ".wikia.com/api.php?action=parse&section=0&page="+event.clickNode.id+"&format=json&callback=JSON_CALLBACK&redirects&prop=text").then(function(data){
                     var div = document.createElement("div");
                     div.innerHTML = data.data.parse.text['*'];
-    
                     var paragraphs = div.getElementsByTagName("p");
+                    var contentString = ""
                     console.log(paragraphs);
                     for(var i = 0; i < paragraphs.length; i++)
                     {
-                        alert(paragraphs[i].innerHTML);
+                        contentString += "<p>" + paragraphs[i].innerHTML + "</p>";
                     }
                     myEl.html("<div class = 'wiki-title' id='title-container'><h1>" + event.clickNode.id + "</h1></div><div class = 'wiki-content' id='content-container'><img src = '" + event.clickNode.image + "'><p>" + data.data.parse.text['*'] + "</p></div>");
                 });
