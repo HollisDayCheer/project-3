@@ -28,6 +28,7 @@ h1{
 }
 .wiki-image{
 	position:relative;
+	float: right;
 	width: 400px;
 
 }
