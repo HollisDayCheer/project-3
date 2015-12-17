@@ -30,6 +30,7 @@ h1{
 	position:relative;
 	float: right;
 	width: 400px;
+	overflow:auto; 
 
 }
 img{
