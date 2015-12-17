@@ -19,6 +19,9 @@
 	text-align: center;
 	border-bottom: 2px solid black;
 }
+h1{
+	display: inline-block;
+}
 
 img{
 	max-width:100%;
