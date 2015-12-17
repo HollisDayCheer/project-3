@@ -9,8 +9,9 @@
 .wiki-image {
 	background-color: blue;
 	display: inline-block;
+	position: absolute;
+	right: 0;
 	max-width: 400px;
-
 
 }
 .wiki-title {
