@@ -98,13 +98,13 @@ var ZoomChartsLicenseKey = "bb7924e4f05f54b7fc036c803df2f441449f427f12ccc64ced"+
      $scope.startGraph = function(title){
         graphStart()
         $scope.gameStart(title);
-        $http.jsonp("http://"+ $scope.ourWiki + ".wikia.com/api.php?action=parse&section=0&page="+title+"&format=json&callback=JSON_CALLBACK&redirects&prop=text|links").then(function(data){
+        $http.jsonp("http://"+ $scope.ourWiki + ".wikia.com/api.php?action=parse&section=0&page="+title+"&format=json&callback=JSON_CALLBACK&redirects&prop=text|links&plnamespace=0").then(function(data){
         }).then(function(data){
             $scope.continueGraph(title);
         });
     }
     $scope.continueGraph = function(title){
-        $http.jsonp("http://"+ $scope.ourWiki + ".wikia.com/api.php?action=parse&section=0&page="+title+"&format=json&callback=JSON_CALLBACK&redirects&prop=text|links").then(function(data){
+        $http.jsonp("http://"+ $scope.ourWiki + ".wikia.com/api.php?action=parse&section=0&page="+title+"&format=json&callback=JSON_CALLBACK&redirects&prop=text|links&plnamespace=0").then(function(data){
             baseNodeID = title;
             // basePage = (data.data.query.pages[basePageID].extract.toLowerCase());
         }).then(function(data){
@@ -146,7 +146,7 @@ var ZoomChartsLicenseKey = "bb7924e4f05f54b7fc036c803df2f441449f427f12ccc64ced"+
                 return curItem;
             }
             else {  
-                $http.jsonp("http://"+ $scope.ourWiki + ".wikia.com/api.php?action=parse&section=0&page="+curItem+"&format=json&callback=JSON_CALLBACK&redirects&prop=text|links").then(function(data){
+                $http.jsonp("http://"+ $scope.ourWiki + ".wikia.com/api.php?action=parse&section=0&page="+curItem+"&format=json&callback=JSON_CALLBACK&redirects&prop=text|links&plnamespace=0").then(function(data){
                     var ourLinks = data.data.parse.links;
                     var activeLinks = [];
                     for(var i = 0; i< ourLinks.length; i++){
