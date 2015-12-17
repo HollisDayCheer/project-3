@@ -74,6 +74,7 @@ var ZoomChartsLicenseKey = "bb7924e4f05f54b7fc036c803df2f441449f427f12ccc64ced"+
                 });            }
             if(event.clickNode.id.toLowerCase() == $scope.specificTarget.toLowerCase()){
                 $scope.specificVictory = true;
+                $scope.specificClicks+=1;
             }
         }
     }
@@ -174,6 +175,11 @@ var ZoomChartsLicenseKey = "bb7924e4f05f54b7fc036c803df2f441449f427f12ccc64ced"+
                 });
             }
         }
+    }
+
+    $scope.setSpecificVictoryToFalse = function(){
+        $scope.specificVictory = false;
+        $scope.specificTarget = "";
     }
 
     $scope.startGraph();

@@ -13,13 +13,4 @@ angular.module('WikiGraph')
   		$scope.wikiaSearch = "";
   	}
 
-  	$scope.setVictoryToFalse = function(){
-  		$scope.victory = false;
-  		$scope.target = "";
-  	}
-	$scope.setSpecificVictoryToFalse = function(){
-  		$scope.specificVictory = false;
-  		$scope.specificTarget = "";
-  	}
-       
 }]);
