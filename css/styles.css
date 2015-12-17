@@ -14,10 +14,9 @@
 
 }
 .wiki-title {
-	width: calc(100%-400);
+	width: calc(100%-400px);
 	display: inline-block;
 	position: relative;
-	text-align: center;
 	border-bottom: 2px solid black;
 }
 h1{
