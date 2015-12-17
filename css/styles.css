@@ -11,6 +11,7 @@
 
 }
 .wiki-title {
+	width: 100%;
 	display: inline-block;
 	position: relative;
 	text-align: center;
@@ -25,10 +26,16 @@ h1{
 	display: inline-block;
 	position: relative;
 }
+.wiki-image{
+	position:relative;
+	max-width: 400px;
 
+}
 img{
 	display: inline-block;
-	max-width: 400px;
+	position: absolute;
+	max-height: 100%;
+	max-width: 100%;
 	right: 0;
 }
 p{
