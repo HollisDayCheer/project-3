@@ -14,7 +14,7 @@
 		<div ng-controller = "graphController">
 		  <div class= "victory-modal" ng-show = "victory">
      			<p> You Did it! You found {{targetItem}} in {{numClicks}} clicks! The computer did it in 4. </p>
-     			<button class = "myButton" ng-click = "setSpecificVictoryToFalse()">Try Again?</button>
+     			<button class = "myButton" ng-click = "setVictoryToFalse()">Try Again?</button>
      	  </div>
      <div class = "game-modal" ng-show = "!victory">
 		<p ng-show = "targetItem"> Can you find {{targetItem}}?</p>
