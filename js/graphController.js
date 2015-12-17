@@ -20,6 +20,7 @@ var ZoomChartsLicenseKey = "bb7924e4f05f54b7fc036c803df2f441449f427f12ccc64ced"+
     $scope.targetItem = "";
     $scope.victory = false;
     $scope.pageLinks =[];
+    $scope.numClicks = 0;
     var visitedMap = {};
     var numbNodes = 0;
     var ourChart;
@@ -83,6 +84,7 @@ var ZoomChartsLicenseKey = "bb7924e4f05f54b7fc036c803df2f441449f427f12ccc64ced"+
         if(event.clickNode){
             $scope.continueGraph(event.clickNode.id);
         }
+        $scope.numClicks+=1
      }
     //This is technically repeating myself, but I am ok with that because I want the set page to be a scoped variable, meaning it needs to 
     //be a different function than the generic add nodes function
@@ -171,6 +173,7 @@ var ZoomChartsLicenseKey = "bb7924e4f05f54b7fc036c803df2f441449f427f12ccc64ced"+
         //getMOREpages(new.data.continue.plcontinue)
       //}
     $scope.gameStart = function(title){
+        $scope.numClicks = 0;
         var visitedNodes = [];
         var solutionArray = [];
         solutionArray.push(title);

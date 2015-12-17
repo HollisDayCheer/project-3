@@ -7,7 +7,6 @@
 			</form>
         </div>
    
-
       
 
 	<div ng-show = '!ourWiki'>
@@ -51,12 +50,12 @@
 			    <input class = "myButton" type = "submit">
 			 </form>
 			 <div class= "victory-modal" ng-show = "specificVictory">
-		     	<p> You Did it! You found {{targetItem}} in {{numClicks}} clicks! The computer did it in 4. </p>
+		     	<p> You Did it! You found {{specificTarget}} in {{specificClicks}} clicks! The computer did it in 4. </p>
 		     	<button class = "myButton" ng-click = "setSpecificVictoryToFalse()">Try Again?</button>
 		     </div>
 
 		     <div class = "game-modal" ng-show = "!specificVictory">
-				<p ng-show = "specificTarget"> Can you find {{targetItem}}?</p>
+				<p ng-show = "specificTarget"> Can you find {{specificTarget}}?</p>
 				<p ng-show = "!specificTarget"> Enter a search term to get a target</p>
 		     </div>
 			<!-- Create a custom directive that can be pushed through each time! they'll have links and all that jazz. Or maybe just do that stuff. -->
