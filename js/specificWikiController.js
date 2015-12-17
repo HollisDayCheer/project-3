@@ -9,14 +9,14 @@ var ZoomChartsLicenseKey = "bb7924e4f05f54b7fc036c803df2f441449f427f12ccc64ced"+
 "885c4bbb3e1fd2116003c4f9c3202fee68771a3ab965bb3132780fb87bd95e86994a340650526"+
 "1fcdf53f933996ce1d010bfafdfaa56aeb4744437bb753c9847fc032b74294eb1540ad8faee50"+
 "a72fe6dd3a72417c044c83151f2e0bc88cedd4482f104a9a003e3f18ed42f8347acaa47499f77";
-    $scope.targetItem = ""; //will be hit with an ng-model searchTerm
+    $scope.specificTarget = ""; //will be hit with an ng-model searchTerm
     $scope.solutionArray = []; //array starts out empty, refreshes with each page refresh because 
     //because the graph restarts, and we fill it as we add to our chart
     // $scope.search = function(target){
     //   // finds the closest wikipedia article (first one queried with an api call)
     // }
     var visitedMap = {};
-    $scope.victory = false;
+    $scope.specificVictory = false;
     $scope.pageLinks =[];
     var numbNodes = 0;
     var ourChart;
@@ -45,7 +45,7 @@ var ZoomChartsLicenseKey = "bb7924e4f05f54b7fc036c803df2f441449f427f12ccc64ced"+
                 }
             }
          });
-        $scope.victory = false;
+        $scope.specificVictory = false;
 
         console.log("Graph started");
     }
@@ -71,8 +71,8 @@ var ZoomChartsLicenseKey = "bb7924e4f05f54b7fc036c803df2f441449f427f12ccc64ced"+
                 $http.jsonp("http://"+ $scope.ourWiki + ".wikia.com/api.php?action=parse&section=0&page="+event.clickNode.id+"&format=json&callback=JSON_CALLBACK&redirects&prop=text").then(function(data){
                     myEl.html("<div class = 'wiki-title' id='title-container'><h1>" + event.clickNode.id + "</h1></div><div class = 'wiki-content' id='content-container'><p>" + data.data.parse.text['*'] + "</p></div>");
                 });            }
-            if(event.clickNode.id.toLowerCase() == $scope.targetItem.toLowerCase()){
-                $scope.victory = true;
+            if(event.clickNode.id.toLowerCase() == $scope.specificTarget.toLowerCase()){
+                $scope.specificVictory = true;
             }
         }
     }
@@ -141,7 +141,7 @@ var ZoomChartsLicenseKey = "bb7924e4f05f54b7fc036c803df2f441449f427f12ccc64ced"+
 
         function findRandItem(curItem){
             if(solutionArray.length>4){
-                $scope.targetItem = curItem;
+                $scope.specificTarget = curItem;
                 $scope.solutionArray = solutionArray;
                 return curItem;
             }
@@ -158,7 +158,7 @@ var ZoomChartsLicenseKey = "bb7924e4f05f54b7fc036c803df2f441449f427f12ccc64ced"+
                     // console.log("our active Links are::");
                     // console.log(activeLinks);
                     if(activeLinks.length == 0){
-                        $scope.targetItem = curItem;
+                        $scope.specificTarget = curItem;
                         $scope.solutionArray = solutionArray;
                         console.log(solutionArray);
                         return curItem;

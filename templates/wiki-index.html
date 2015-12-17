@@ -6,9 +6,20 @@
 			    	<input class = "myButton" type = "submit">
 			</form>
         </div>
+   
+
+      
 
 	<div ng-show = '!ourWiki'>
 		<div ng-controller = "graphController">
+		  <div class= "victory-modal" ng-show = "victory">
+     			<p> You Did it! You found {{targetItem}} in {{numClicks}} clicks! The computer did it in 4. </p>
+     			<button class = "myButton" ng-click = "setSpecificVictoryToFalse()">Try Again?</button>
+     	  </div>
+     <div class = "game-modal" ng-show = "!victory">
+		<p ng-show = "targetItem"> Can you find {{targetItem}}?</p>
+		<p ng-show = "!targetItem">Enter a search term to start</p>
+     </div>
 			<form ng-submit = "startGraph(searchTerm)">
 			    <input class = "input-field" type="text" ng-model = "searchTerm" placeholder = "SEARCH">
 			    <input class = "myButton" type = "submit">
@@ -39,6 +50,15 @@
 			    <input class = "input-field"  type="text" ng-model = "searchTerm" placeholder = "SEARCH">
 			    <input class = "myButton" type = "submit">
 			 </form>
+			 <div class= "victory-modal" ng-show = "specificVictory">
+		     	<p> You Did it! You found {{targetItem}} in {{numClicks}} clicks! The computer did it in 4. </p>
+		     	<button class = "myButton" ng-click = "setSpecificVictoryToFalse()">Try Again?</button>
+		     </div>
+
+		     <div class = "game-modal" ng-show = "!specificVictory">
+				<p ng-show = "specificTarget"> Can you find {{targetItem}}?</p>
+				<p ng-show = "!specificTarget"> Enter a search term to get a target</p>
+		     </div>
 			<!-- Create a custom directive that can be pushed through each time! they'll have links and all that jazz. Or maybe just do that stuff. -->
 			<div id = "standard-container" ng-show="!specific">
 				<div class = 'chart' id="specific-chart-container">

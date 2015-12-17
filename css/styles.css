@@ -2,6 +2,9 @@ body{
 	font-family: 'Lora', serif;
 }
 
+.victory-modal{
+	background-color: green;
+}
 .jumbo-header h3{
 	font-size: 36;
 	width: 100%;
