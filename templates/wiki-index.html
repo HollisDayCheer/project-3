@@ -2,7 +2,7 @@
 	  <div class = "jumbo-header">
                 <h3> Wiki-Graph</h3>
 	            <form class = "wikia-search-form" ng-submit = "findSpecific(wikiaSearch)">
-			    	<input type="text" ng-model = "wikiaSearch" placeholder = "Search Wikias!">
+			    	<input class = "input-field" type="text" ng-model = "wikiaSearch" placeholder = "Search Wikias!">
 			    	<input class = "myButton" type = "submit">
 			</form>
         </div>
@@ -10,7 +10,7 @@
 	<div ng-show = '!ourWiki'>
 		<div ng-controller = "graphController">
 			<form ng-submit = "startGraph(searchTerm)">
-			    <input type="text" ng-model = "searchTerm" placeholder = "SEARCH">
+			    <input class = "input-field" type="text" ng-model = "searchTerm" placeholder = "SEARCH">
 			    <input class = "myButton" type = "submit">
 			 </form>
 			<!-- Create a custom directive that can be pushed through each time! they'll have links and all that jazz. Or maybe just do that stuff. -->
@@ -36,7 +36,7 @@
 		<div ng-controller = "specificWikiController">
 			{{ourWiki}}
 			<form  ng-submit = "startGraph(searchTerm)">
-			    <input type="text" ng-model = "searchTerm" placeholder = "SEARCH">
+			    <input class = "input-field"  type="text" ng-model = "searchTerm" placeholder = "SEARCH">
 			    <input class = "myButton" type = "submit">
 			 </form>
 			<!-- Create a custom directive that can be pushed through each time! they'll have links and all that jazz. Or maybe just do that stuff. -->
