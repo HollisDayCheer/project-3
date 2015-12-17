@@ -1,15 +1,18 @@
-#articles-container{
-	background-color: red;
+.wiki-article{
+	background-color: grey;
 	display: inline-block;
 	position: relative;
+	padding: 20px;
+	border: 5px solid black;
+	border-radius: 10px;
 }
-#image-container {
+.wiki-image {
 	background-color: blue;
 	display: inline-block;
 	height: 400px;
 
 }
-#title-container {
+.wiki-title {
 	background-color: green;
 	display: inline-block;
 	position: absolute;
@@ -17,8 +20,7 @@
 h1{
 	top:0;
 }
-
-#content-container {
+.wiki-content {
 	background-color: yellow;
 	display: inline-block;
 	position: relative;
