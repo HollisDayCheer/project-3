@@ -4,7 +4,14 @@ angular.module('WikiGraph')
   	$scope.wikiaSearch = "";
 
   	$scope.findSpecific = function(search){
-  		$scope.ourWiki = search;
+  		$http.head(search+ ".wikia.com").success(function(){
+  			$scope.ourWiki = search;
+  			return true;
+  		});
+  		else{
+  			$scope.wikiaSearch = "";
+  			return false;
+  		}
   	}
 
 
