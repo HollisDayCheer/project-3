@@ -114,7 +114,7 @@ var ZoomChartsLicenseKey = "bb7924e4f05f54b7fc036c803df2f441449f427f12ccc64ced"+
 
         var getLinks = function(title){
             var pageLinks = [];
-            $http.jsonp("http://"+ $scope.ourWiki + ".wikia.com/api.php?action=parse&section=0&page="+title+"&format=json&callback=JSON_CALLBACK&redirects&prop=text|links").then(function(data){
+            $http.jsonp("http://"+ $scope.ourWiki + ".wikia.com/api.php?action=parse&section=0&page="+title+"&format=json&callback=JSON_CALLBACK&redirects&prop=text|links&plnamespace=0").then(function(data){
                 ourLinks = data.data.parse.links;
                 for(var i = 0; i < ourLinks.length; i++){
                     pageLinks.push(ourLinks[i].title);
