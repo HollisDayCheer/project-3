@@ -208,10 +208,11 @@ var ZoomChartsLicenseKey = "bb7924e4f05f54b7fc036c803df2f441449f427f12ccc64ced"+
             }
         }
     }
-    
+
     $scope.setVictoryToFalse = function(){
         $scope.victory = false;
         $scope.target = "";
+        $scope.gameStart();
     }
        
     $scope.startGraph('Giant Panda');
