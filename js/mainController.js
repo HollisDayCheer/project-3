@@ -7,10 +7,12 @@ angular.module('WikiGraph')
   		$http.head("http://" +search+ ".wikia.com").success(function(){
   			$scope.ourWiki = search;
   			return true;
-  		});
-		$scope.wikiaSearch = "";
-		return false;
+  		}).error(function(){
+			$scope.wikiaSearch = "";
+			return false;
+		});
   	}
+
 
 
 
