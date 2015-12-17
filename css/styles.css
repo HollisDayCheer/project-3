@@ -1,3 +1,5 @@
+
+
 .wiki-article{
 	background-color: grey;
 	display: inline-block;
@@ -5,13 +7,14 @@
 	padding: 20px;
 	border: 5px solid black;
 	border-radius: 10px;
+	margin: 10px;
 }
 .wiki-image {
 	
 
 }
 .wiki-title {
-	width: 100%;
+	width: calc(100%-400);
 	display: inline-block;
 	position: relative;
 	text-align: center;
