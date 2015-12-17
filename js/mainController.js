@@ -34,6 +34,7 @@ angular.module('WikiGraph')
                 request.open("GET", url);
                 if (request.status == 200) { return true; }
         }
+    }
 
         
 
