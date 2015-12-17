@@ -8,10 +8,8 @@ angular.module('WikiGraph')
   			$scope.ourWiki = search;
   			return true;
   		});
-  		else{
-  			$scope.wikiaSearch = "";
-  			return false;
-  		}
+		$scope.wikiaSearch = "";
+		return false;
   	}
 
 
