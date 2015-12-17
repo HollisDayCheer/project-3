@@ -30,4 +30,5 @@ img{
 	background-color: yellow;
 	display: inline-block;
 	position: relative;
+	top: 0;
 }
