@@ -5,7 +5,7 @@ angular.module('WikiGraph')
 
   	$scope.findSpecific = function(search){
   		var goodPrefix = search.replace(/ /g,'');
-  		if(checkUrl("http://" + goodPrefix + ".wikia.com"){
+  		if(checkUrl("http://" + goodPrefix + ".wikia.com")){
   			$scope.ourWiki = goodPrefix;
   			$scope.wikiaSearch = "";
   			return true;
