@@ -56,7 +56,10 @@ var ZoomChartsLicenseKey = "bb7924e4f05f54b7fc036c803df2f441449f427f12ccc64ced"+
             var myEl = angular.element( document.querySelector('#specific-articles-container'));
             if(event.clickNode.image){
                 $http.jsonp("http://"+ $scope.ourWiki + ".wikia.com/api.php?action=parse&section=0&page="+event.clickNode.id+"&format=json&callback=JSON_CALLBACK&redirects&prop=text").then(function(data){
-                    var paragraphs = data.data.parse.text['*'].getElementsByTagName("p");
+                    var div = document.createElement("div");
+                    div.innerHTML = data.data.parse.text['*'];
+    
+                    var paragraphs = div.getElementsByTagName("p");
                     console.log(paragraphs);
                     for(var i = 0; i < paragraphs.length; i++)
                     {
