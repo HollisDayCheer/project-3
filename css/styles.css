@@ -1,4 +1,6 @@
-
+.chart{
+	border: 1px solid black;
+}
 
 .wiki-article{
 	display: inline-block;
@@ -13,7 +15,7 @@
 
 }
 .wiki-title {
-	width: calc(100% - 300px);
+	width: calc(100% - 350px);
 	display: inline-block;
 	position: relative;
 	border-bottom: 2px solid black;
