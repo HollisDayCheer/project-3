@@ -163,7 +163,7 @@ var ZoomChartsLicenseKey = "bb7924e4f05f54b7fc036c803df2f441449f427f12ccc64ced"+
         }
     }
 
-    startGraph();
+    $scope.startGraph();
       //recursive function getAllImages(pageID){
         //apiPageID
         //push those into the array
