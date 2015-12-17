@@ -31,7 +31,7 @@
 	<div ng-show = 'ourWiki' >
 		<div ng-controller = "specificWikiController">
 			{{ourWiki}}
-			<form ng-submit = "startGraph(searchTerm)">
+			<form class = "wikia-search-form" ng-submit = "startGraph(searchTerm)">
 			    <input type="text" ng-model = "searchTerm" placeholder = "SEARCH">
 			    <input type = "submit">
 			 </form>

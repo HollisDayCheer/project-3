@@ -13,9 +13,8 @@ body{
 	border-radius: 10px;
 	margin: 10px;
 }
-.wiki-image {
-	
-
+.wikia-search-form {
+	float: right;
 }
 .wiki-title {
 	width: calc(100% - 350px);
